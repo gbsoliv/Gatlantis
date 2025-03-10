@@ -1,12 +1,18 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+from code.entity import Entity
+
+
 class Level:
-    def __init__(self):
-        self.window = None
-        self.name = None
-        self.entity_list = None
-        self.entity_list = None
+
+    def __init__(self, window, name):
+        self.window = window
+        self.name = name
+        self.entity_list = list[Entity] = []
+
+    pass
 
     def run(self, ):
+
         pass
