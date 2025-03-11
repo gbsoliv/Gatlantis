@@ -11,7 +11,7 @@ class Level:
     def __init__(self, window, name):
         self.window = window
         self.name = name
-        self.entity_list = list[Entity] = []
+        self.entity_list: list[Entity] = []
         self.entity_list.extend(EntityFactory.get_entity('Level1Bg'))
 
     pass
