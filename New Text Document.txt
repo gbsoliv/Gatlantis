@@ -1,9 +1,0 @@
-Gatlantis
-
-1. Criar arquivo venv para o projeto e ativa-lo 
-
-2. Instalar PYGame
-
-3. Criar arquivo de dependencias do projeto
-
-4. Criar arquivo .gitignore

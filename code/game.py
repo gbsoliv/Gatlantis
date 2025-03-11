@@ -1,5 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+import sys
 
 import pygame
 
@@ -19,14 +20,16 @@ class Game:
             menu = Menu(self.window)
             menu_return = menu.run()
 
-            if menu_return == MENU_OPTIONS[0]:  # PLAY
+            if menu_return == MENU_OPTIONS[0]:                      # PLAY
                 level = Level(self.window, 'Level1')                 #!!!!
                 level_return = level.run()
 
-            elif menu_return == MENU_OPTIONS[2]:  # QUIT
-                pygame.quit()
-                quit()
-                pass
+           # elif menu_return == MENU_OPTIONS[1]:                   # SCORE
+               # score.show()
 
+            elif menu_return == MENU_OPTIONS[2]:
+                pygame.quit()  # Close Window                         # QUIT
+                quit()  # end pygame
             else:
-                pass
+                pygame.quit()
+                sys.exit()
