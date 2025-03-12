@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 from code.entity import Entity
-from const import WIN_WIDTH
 
 
 
