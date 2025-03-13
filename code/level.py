@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 import sys
+from random import choice
 
 import pygame
 from pygame import Surface, Rect
@@ -8,7 +9,7 @@ from pygame.font import Font
 
 from code.entity import Entity
 from code.entityFactory import EntityFactory
-from const import WIN_HEIGHT, COLOR_WHITE, TIMEOUT_LEVEL
+from const import WIN_HEIGHT, COLOR_WHITE, TIMEOUT_LEVEL, EVENT_ENEMY, SPAWN_TIME
 
 
 class Level:
@@ -19,6 +20,8 @@ class Level:
         self.name = name
         self.entity_list: list[Entity] = []
         self.entity_list.extend(EntityFactory.get_entity('Level1Bg'))
+        self.entity_list.append(EntityFactory.get_entity('Player'))
+        pygame.time.set_timer(EVENT_ENEMY, SPAWN_TIME)
 
     pass
 
@@ -35,6 +38,9 @@ class Level:
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     sys.exit()
+                if event.type == EVENT_ENEMY:
+                    self.entity_list.append(EntityFactory.get_entity('Enemy1'))
+                    self.entity_list.append(EntityFactory.get_entity('Enemy2'))
 
             # pygame.display.flip()
 
