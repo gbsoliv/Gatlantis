@@ -7,6 +7,7 @@ import pygame
 from pygame import Surface, Rect
 from pygame.font import Font
 
+from code.EntityMediator import EntityMediator
 from code.entity import Entity
 from code.entityFactory import EntityFactory
 from const import WIN_HEIGHT, COLOR_WHITE, TIMEOUT_LEVEL, EVENT_ENEMY, SPAWN_TIME
@@ -42,13 +43,15 @@ class Level:
                     self.entity_list.append(EntityFactory.get_entity('Enemy1'))
                     self.entity_list.append(EntityFactory.get_entity('Enemy2'))
 
-            # pygame.display.flip()
-
             # printed text
             self.level_text(14, f'{self.name} - Timeout: {self.timeout / 1000:.1f}s', COLOR_WHITE, (10, 5))
             self.level_text(14, f'fps: {clock.get_fps():.0f}', COLOR_WHITE, (10, WIN_HEIGHT - 35))
             self.level_text(14, f'entidades: {len(self.entity_list)}', COLOR_WHITE, (10, WIN_HEIGHT - 20))
             pygame.display.flip()
+            EntityMediator.verify_collision(entity_list=self.entity_list)
+            EntityMediator.verify_health(entity_list=self.entity_list)
+
+
 
     def level_text(self, text_size: int, text: str, text_color: tuple, text_pos: tuple):
         text_font: Font = pygame.font.SysFont(name="Lucida Sans Typewriter", size=text_size)
