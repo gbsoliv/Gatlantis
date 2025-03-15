@@ -44,7 +44,7 @@ ENTITY_HEALTH = {
 ENTITY_SHOT_DELAY = {
     'Player': 20,
     'Enemy1': 80,
-    'Enemy2': 160,
+    'Enemy2': 120,
 }
 
 EVENT_TIMEOUT = pygame.USEREVENT + 2
