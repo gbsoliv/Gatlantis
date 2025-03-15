@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from code.entity import Entity
-from const import ENTITY_SPEED, WIN_WIDTH
+from const import ENTITY_SPEED
 
 
 class Enemy(Entity):
@@ -12,3 +12,5 @@ class Enemy(Entity):
     def move(self, ):
         self.rect.centerx -= ENTITY_SPEED[self.name]
 
+    def shoot(self):
+        pass

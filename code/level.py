@@ -1,15 +1,16 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 import sys
-from random import choice
 
 import pygame
 from pygame import Surface, Rect
 from pygame.font import Font
 
 from code.EntityMediator import EntityMediator
+from code.enemy import Enemy
 from code.entity import Entity
 from code.entityFactory import EntityFactory
+from code.player import Player
 from const import WIN_HEIGHT, COLOR_WHITE, TIMEOUT_LEVEL, EVENT_ENEMY, SPAWN_TIME
 
 
@@ -35,6 +36,12 @@ class Level:
             for ent in self.entity_list:
                 self.window.blit(source=ent.surf, dest=ent.rect)
                 ent.move()
+
+                if isinstance(ent, (Player, Enemy)):
+                    shoot = ent.shoot()
+                    if shoot is not None:
+                        self.entity_list.append(shoot)
+
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
@@ -48,10 +55,10 @@ class Level:
             self.level_text(14, f'fps: {clock.get_fps():.0f}', COLOR_WHITE, (10, WIN_HEIGHT - 35))
             self.level_text(14, f'entidades: {len(self.entity_list)}', COLOR_WHITE, (10, WIN_HEIGHT - 20))
             pygame.display.flip()
+
+            # COLLISION
             EntityMediator.verify_collision(entity_list=self.entity_list)
             EntityMediator.verify_health(entity_list=self.entity_list)
-
-
 
     def level_text(self, text_size: int, text: str, text_color: tuple, text_pos: tuple):
         text_font: Font = pygame.font.SysFont(name="Lucida Sans Typewriter", size=text_size)

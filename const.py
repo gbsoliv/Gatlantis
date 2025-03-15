@@ -8,15 +8,11 @@ COLOR_WHITE = 255, 255, 255
 # E
 
 ENTITY_SPEED = {
-    #    'Level1Bg1':0,
-    #    'Level1Bg2':0,
-    #    'Level1Bg3':0,
-    #    'Level1Bg4':0,
-
     'Player': 5,
+    'PlayerShot': 2,
 
     'Enemy1': 2,
-    'Enemy2': 1
+    'Enemy2': 1,
 }
 
 ENTITY_HEALTH = {
@@ -25,19 +21,25 @@ ENTITY_HEALTH = {
     'Level1Bg2': 999,
     'Level1Bg3': 999,
     'Level1Bg4': 999,
-    'Level1Bg5': 999,
-    'Level1Bg6': 999,
+
     'Level2Bg0': 999,
     'Level2Bg1': 999,
     'Level2Bg2': 999,
     'Level2Bg3': 999,
     'Level2Bg4': 999,
+
     'Player': 300,
-    'Player1Shot': 1,
+    'PlayerShot': 3,
+
     'Enemy1': 50,
     'Enemy1Shot': 1,
+
     'Enemy2': 60,
     'Enemy2Shot': 1,
+}
+
+ENTITY_SHOT_DELAY = {
+    'Player': 20,
 }
 
 EVENT_TIMEOUT = pygame.USEREVENT + 2
