@@ -9,10 +9,13 @@ COLOR_WHITE = 255, 255, 255
 
 ENTITY_SPEED = {
     'Player': 5,
-    'PlayerShot': 2,
+    'PlayerShot': 3,
 
-    'Enemy1': 2,
+    'Enemy1': 1,
+    'Enemy1Shot': 5,
+
     'Enemy2': 1,
+    'Enemy2Shot': 2,
 }
 
 ENTITY_HEALTH = {
@@ -40,6 +43,8 @@ ENTITY_HEALTH = {
 
 ENTITY_SHOT_DELAY = {
     'Player': 20,
+    'Enemy1': 80,
+    'Enemy2': 160,
 }
 
 EVENT_TIMEOUT = pygame.USEREVENT + 2
