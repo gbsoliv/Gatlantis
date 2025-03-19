@@ -11,7 +11,7 @@ from code.enemy import Enemy
 from code.entity import Entity
 from code.entityFactory import EntityFactory
 from code.player import Player
-from const import WIN_HEIGHT, COLOR_WHITE, TIMEOUT_LEVEL, EVENT_ENEMY, SPAWN_TIME
+from const import WIN_HEIGHT, COLOR_WHITE, TIMEOUT_LEVEL, EVENT_ENEMY, SPAWN_TIME, COLOR_PURPLE, COLOR_BLACK
 
 
 class Level:
@@ -41,6 +41,9 @@ class Level:
                     shoot = ent.shoot()
                     if shoot is not None:
                         self.entity_list.append(shoot)
+                    if ent.name == 'Player':
+                        self.level_text(18, f'Player - HP: {ent.health} | Score: {ent.score}', COLOR_PURPLE, (10, 25))
+
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -51,7 +54,7 @@ class Level:
                     self.entity_list.append(EntityFactory.get_entity('Enemy2'))
 
             # printed text
-            self.level_text(14, f'{self.name} - Timeout: {self.timeout / 1000:.1f}s', COLOR_WHITE, (10, 5))
+            self.level_text(16, f'{self.name} - Timeout: {self.timeout / 1000:.1f}s', COLOR_BLACK, (10, 5))
             self.level_text(14, f'fps: {clock.get_fps():.0f}', COLOR_WHITE, (10, WIN_HEIGHT - 35))
             self.level_text(14, f'entidades: {len(self.entity_list)}', COLOR_WHITE, (10, WIN_HEIGHT - 20))
             pygame.display.flip()
