@@ -20,12 +20,13 @@ class Game:
             menu = Menu(self.window)
             menu_return = menu.run()
 
-            if menu_return == MENU_OPTIONS[0]:                      # PLAY
-                level = Level(self.window, 'Level1')                 #!!!!
-                level_return = level.run()
+            if menu_return == MENU_OPTIONS[0]:  # PLAY
+                player_score = [0]
+                level = Level(self.window, 'Level1', player_score)
+                level_return = level.run(player_score)
 
-           # elif menu_return == MENU_OPTIONS[1]:                   # SCORE
-               # score.show()
+            # elif menu_return == MENU_OPTIONS[1]:                   # SCORE
+            # score.show()
 
             elif menu_return == MENU_OPTIONS[2]:
                 pygame.quit()  # Close Window                         # QUIT

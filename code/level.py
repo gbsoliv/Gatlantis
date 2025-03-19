@@ -11,23 +11,28 @@ from code.enemy import Enemy
 from code.entity import Entity
 from code.entityFactory import EntityFactory
 from code.player import Player
-from const import WIN_HEIGHT, COLOR_WHITE, TIMEOUT_LEVEL, EVENT_ENEMY, SPAWN_TIME, COLOR_PURPLE, COLOR_BLACK
+from const import WIN_HEIGHT, COLOR_WHITE, EVENT_TIMEOUT, EVENT_ENEMY, SPAWN_TIME, COLOR_PURPLE, COLOR_BLACK
 
 
 class Level:
 
-    def __init__(self, window, name):
-        self.timeout = TIMEOUT_LEVEL
+    def __init__(self, window:Surface, name:str, player_score:list[int]):
+        self.timeout = 20000
         self.window = window
         self.name = name
         self.entity_list: list[Entity] = []
         self.entity_list.extend(EntityFactory.get_entity('Level1Bg'))
-        self.entity_list.append(EntityFactory.get_entity('Player'))
+
+        player = EntityFactory.get_entity('Player')
+        player.score = player_score[0]
+        self.entity_list.append(player)
+
         pygame.time.set_timer(EVENT_ENEMY, SPAWN_TIME)
+        pygame.time.set_timer(EVENT_TIMEOUT, millis=100)  # 100ms
 
     pass
 
-    def run(self):
+    def run(self, player_score:list[int]):
         pygame.mixer.music.load('./assets/level1-song.mp3')
         pygame.mixer.music.play(-1)
         clock = pygame.time.Clock()
@@ -42,8 +47,7 @@ class Level:
                     if shoot is not None:
                         self.entity_list.append(shoot)
                     if ent.name == 'Player':
-                        self.level_text(18, f'Player - HP: {ent.health} | Score: {ent.score}', COLOR_PURPLE, (10, 25))
-
+                        self.level_text(18, f'HP: {ent.health} | Score: {ent.score}', COLOR_PURPLE, (10, 5))
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -53,10 +57,19 @@ class Level:
                     self.entity_list.append(EntityFactory.get_entity('Enemy1'))
                     self.entity_list.append(EntityFactory.get_entity('Enemy2'))
 
+                found_player = False
+                for ent in self.entity_list:
+                    if isinstance(ent, Player) and ent.name == 'Player':
+                        player_score[0] = ent.score
+                        found_player = True
+
+                if not found_player:
+                    return False
+
             # printed text
-            self.level_text(16, f'{self.name} - Timeout: {self.timeout / 1000:.1f}s', COLOR_BLACK, (10, 5))
-            self.level_text(14, f'fps: {clock.get_fps():.0f}', COLOR_WHITE, (10, WIN_HEIGHT - 35))
-            self.level_text(14, f'entidades: {len(self.entity_list)}', COLOR_WHITE, (10, WIN_HEIGHT - 20))
+            #self.level_text(16, f'{self.name} - Timeout: {self.timeout / 1000:.1f}s', COLOR_BLACK, (10, 5))
+            #self.level_text(14, f'fps: {clock.get_fps():.0f}', COLOR_WHITE, (10, WIN_HEIGHT - 35))
+            #self.level_text(14, f'entidades: {len(self.entity_list)}', COLOR_WHITE, (10, WIN_HEIGHT - 20))
             pygame.display.flip()
 
             # COLLISION
