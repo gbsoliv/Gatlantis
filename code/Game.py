@@ -4,9 +4,9 @@ import sys
 
 import pygame
 
-from code.level import Level
-from code.menu import Menu
-from const import WIN_HEIGHT, WIN_WIDTH, MENU_OPTIONS
+from code.Level import Level
+from code.Menu import Menu
+from Const import WIN_HEIGHT, WIN_WIDTH, MENU_OPTIONS
 
 
 class Game:

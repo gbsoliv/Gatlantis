@@ -3,8 +3,8 @@
 import pygame
 
 from code.PlayerShot import PlayerShot
-from code.entity import Entity
-from const import ENTITY_SPEED, WIN_HEIGHT, WIN_WIDTH, PLAYER_KEY_SHOOT, ENTITY_SHOT_DELAY
+from code.Entity import Entity
+from Const import ENTITY_SPEED, WIN_HEIGHT, WIN_WIDTH, PLAYER_KEY_SHOOT, ENTITY_SHOT_DELAY
 
 
 class Player(Entity):

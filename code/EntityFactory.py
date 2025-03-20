@@ -2,10 +2,10 @@
 # -*- coding: utf-8 -*-
 import random
 
-from code.background import Background
-from code.enemy import Enemy
-from code.player import Player
-from const import WIN_WIDTH, WIN_HEIGHT
+from code.Background import Background
+from code.Enemy import Enemy
+from code.Player import Player
+from Const import WIN_WIDTH, WIN_HEIGHT
 
 
 class EntityFactory:

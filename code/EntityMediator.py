@@ -1,9 +1,9 @@
 from code.EnemyShot import EnemyShot
 from code.PlayerShot import PlayerShot
-from code.enemy import Enemy
-from code.entity import Entity
-from code.player import Player
-from const import WIN_WIDTH
+from code.Enemy import Enemy
+from code.Entity import Entity
+from code.Player import Player
+from Const import WIN_WIDTH
 
 
 class EntityMediator:
@@ -32,7 +32,7 @@ class EntityMediator:
         elif isinstance(ent1, EnemyShot) and isinstance(ent2, Player):
             valid_interaction = True
 
-        if valid_interaction == True:
+        if valid_interaction:
             if (ent1.rect.right >= ent2.rect.left and
                     ent1.rect.left <= ent2.rect.right and
                     ent1.rect.bottom >= ent2.rect.top and
@@ -43,7 +43,7 @@ class EntityMediator:
                 ent2.last_damage = ent1.name
 
     @staticmethod
-    def __give_score(enemy:Enemy, entity_list:list[Entity]):
+    def __give_score(enemy: Enemy, entity_list: list[Entity]):
         if enemy.last_damage == 'PlayerShot':
             for ent in entity_list:
                 if ent.name == 'Player':
@@ -64,5 +64,5 @@ class EntityMediator:
         for ent in entity_list:
             if ent.health <= 0:
                 if isinstance(ent, Enemy):
-                    EntityMediator.__give_score(ent,entity_list)
+                    EntityMediator.__give_score(ent, entity_list)
                 entity_list.remove(ent)

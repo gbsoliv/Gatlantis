@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-from code.entity import Entity
+from code.Entity import Entity
 
 
 

@@ -4,7 +4,7 @@ from abc import ABC, abstractmethod
 
 import pygame.image
 
-from const import ENTITY_HEALTH, ENTITY_DAMAGE, ENTITY_SCORE
+from Const import ENTITY_HEALTH, ENTITY_DAMAGE, ENTITY_SCORE
 
 
 class Entity(ABC):
