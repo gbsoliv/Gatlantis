@@ -1,17 +1,34 @@
-Gatlantis
+# Gatlantis  
 
-1. Criar arquivo venv para o projeto e ativa-lo
+Gatlantis is a simple Python game project designed to provide an interactive and engaging experience.
 
-2. Instalar PYGame
+## Features  
+- Structured game logic for easy implementation.  
+- Modular design enabling future extensions.  
+- Interactive and dynamic gameplay mechanics.  
 
-3. Criar arquivo de dependencias do projeto
+## Getting Started  
+### Prerequisites  
+Ensure you have the following installed:  
+- Python 3.7+  
+- Required dependencies (if applicable).  
 
-4. Criar arquivo .gitignore
 
-5. Criar classes do projeto atraves do diagrama de classes desenvolvido pelo software StarUML
+### 🔧 Installation  
+1. Clone the repository:  
+```bash
+git clone https://github.com/yourusername/gatlantis.git  
+cd gatlantis  
 
-6. Imagens:
+2. Install dependencies:
+pip install -r requirements.txt  
 
-7. Sons:
+### ▶️ How to Run
+python master.py  
 
-8.
+## Contributing  
+Feel free to fork this repository, create a branch with new features, and submit a pull request with your ideas or improvements. 
+
+
+
+
