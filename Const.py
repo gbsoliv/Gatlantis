@@ -1,3 +1,7 @@
+# Game configuration constants for a 2D Pygame project, including settings for colors,
+# entity stats (speed, health, damage, etc.), game events, menu options, controls,
+# and screen dimensions. These values define the basic mechanics and appearance of the game.
+
 import pygame
 
 # C
