@@ -103,7 +103,6 @@ EVENT_ENEMY = pygame.USEREVENT + 1
 
 # M
 MENU_OPTIONS = ('NEW GAME ',
-                'SCORE',
                 'EXIT')
 
 TIMEOUT_LEVEL = 20000  # 20s

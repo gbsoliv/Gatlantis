@@ -29,10 +29,8 @@ class Game:
                 level = Level(self.window, 'Level1', player_score)
                 level_return = level.run(player_score)
 
-            # elif menu_return == MENU_OPTIONS[1]:                   # SCORE
-            # Display the score if the SCORE option is selected.
 
-            elif menu_return == MENU_OPTIONS[2]:  # QUIT
+            elif menu_return == MENU_OPTIONS[1]:  # QUIT
                 # Exit the game if the QUIT option is selected.
                 pygame.quit()  # Close the game window.
                 quit()  # End the program.
