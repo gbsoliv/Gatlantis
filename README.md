@@ -2,6 +2,24 @@
 
 Gatlantis is a simple Python game project designed to provide an interactive and engaging experience.
 
+### 🎮 How to Play
+
+The goal is to survive and defeat enemies.
+
+🕹️ Controls
+
+↑ - Move up
+
+↓ - Move down
+
+← - Move left
+
+→ - Move right
+
+Space - Shoot
+
+
+
 ## Features  
 - Structured game logic for easy implementation.  
 - Modular design enabling future extensions.  
