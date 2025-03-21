@@ -1,4 +1,4 @@
-# Gatlantis  
+# ⚡ Gatlantis  ⚡
 
 Gatlantis is a simple Python game project designed to provide an interactive and engaging experience.
 
@@ -20,12 +20,12 @@ Space - Shoot
 
 
 
-## Features  
+## 🎮 Features  
 - Structured game logic for easy implementation.  
 - Modular design enabling future extensions.  
 - Interactive and dynamic gameplay mechanics.  
 
-## Getting Started  
+## 🎮 Getting Started  
 ### Pre requisites  
 Ensure you have the following installed:  
 - Python 3.7+  
@@ -35,7 +35,7 @@ Ensure you have the following installed:
 
 
 
-### 🔧 Installation  
+### 🎮 Installation  
 1. Clone the repository:  
 git clone https://github.com/yourusername/gatlantis.git  
 cd gatlantis  
@@ -43,7 +43,7 @@ cd gatlantis
 2. Install dependencies:
 pip install -r requirements.txt  
 
-### ▶️ How to Run
+### 🎮 How to Run
 python master.py  
 
 ## Contributing  
